@@ -18,7 +18,7 @@ void NPC_Afficher(NPC npc) {
 }
 
 int main(const int argc, const char *argv[]) {
-    Hashtable* hashtable = Hashtable_CreateEmptyWithCapacity(16);
+    Hashtable* hashtable = Hashtable_CreateEmptyWithCapacity(3);
 
     NPC zelda       = {"zelda"      , 100};
     NPC link        = {"link"       , 200};

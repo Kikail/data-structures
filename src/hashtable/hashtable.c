@@ -68,6 +68,7 @@ void* Hashtable_Get(Hashtable* hashtable, const char* key) {
         if (strcmp(current->key, key) == 0) {
             return current->value;
         }
+        current = current->next;
     }
     return NULL;
 }
