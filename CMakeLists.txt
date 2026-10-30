@@ -8,12 +8,13 @@ set(PROJECT_SOURCES
         src/hashtable/hashtable.c
         src/dynamic-array/dynamic-array.h
         src/dynamic-array/dynamic-array.c
-        testing/test_dynamic-array.c
+        src/linked-list/linked-list.c
+        src/linked-list/linked-list.h
 )
 
 include_directories(.)
 include_directories(src)
-include_directories(src/hashtable)
 
 add_executable(hashtables testing/test_hashtable.c ${PROJECT_SOURCES})
 add_executable(dynamic-array testing/test_dynamic-array.c ${PROJECT_SOURCES})
+add_executable(linked-list testing/test_linked-list.c ${PROJECT_SOURCES})
