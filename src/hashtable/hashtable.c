@@ -20,7 +20,7 @@ Hashtable* Hashtable_CreateEmptyWithCapacity(const int capacity) {
     return hashtable;
 }
 
-unsigned int hash(char* key) {
+unsigned int hash(const char* key) {
     unsigned int hash = 5381;   // Nombre magique !
     while (*key++) hash = (hash * 33) + *key; // 33 est magique aussi !
     return hash;

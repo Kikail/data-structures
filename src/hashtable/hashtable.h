@@ -52,7 +52,7 @@ Hashtable* Hashtable_CreateEmptyWithCapacity(const int capacity);
  * @param key cle a hacher
  * @return cle hachee
  */
-unsigned int hash(char* key);
+unsigned int hash(const char* key);
 
 /**
  * @brief Fonction permettant de ranger une valeur dans la hashtable grace a une cle
