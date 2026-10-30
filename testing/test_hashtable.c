@@ -57,5 +57,7 @@ int main(const int argc, const char *argv[]) {
 
     Hashtable_Destroy(hashtable);
 
+    printf("Tous les tests ont reussi avec succes !\n");
+
     return EXIT_SUCCESS;
 }

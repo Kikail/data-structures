@@ -72,5 +72,7 @@ int main(const int argc, const char *argv[]) {
 
     DynamicArray_Destroy(array);
 
+    printf("Tous les tests ont reussi avec succes !\n");
+
     return EXIT_SUCCESS;
 }

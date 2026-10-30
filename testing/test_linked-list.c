@@ -1,9 +1,7 @@
 #include <assert.h>
-
 #include "../src/linked-list/linked-list.h"
 #include <stdio.h>
 #include <stdlib.h>
-
 
 struct NPC {
     char name[32];
@@ -12,7 +10,7 @@ struct NPC {
 typedef struct NPC NPC;
 
 void NPC_Afficher(NPC npc) {
-    printf("{%s %u}\n",npc.name, npc.health);
+    printf("{%s %u}\n", npc.name, npc.health);
 }
 
 int main(const int argc, const char *argv[]) {
@@ -57,12 +55,9 @@ int main(const int argc, const char *argv[]) {
     LinkedList_PutHead(list, &zelda);
     LinkedList_PutTail(list, &ganon);
 
-    printf("--- Liste initiale ---\n");
-    LinkedList_Print(list);
     assert(list->size == 3);
     assert(list->head->data == &zelda);
     assert(list->tail->data == &ganon);
-
 
     LinkedList_PutAt(list, &chicken, 0);
     assert(list->head->data == &chicken);
@@ -72,8 +67,6 @@ int main(const int argc, const char *argv[]) {
 
     LinkedList_PutAt(list, &navi, 2);
 
-    printf("--- Apres insertions PutAt ---\n");
-    LinkedList_Print(list);
     assert(list->size == 6);
 
     NPC* extracted = (NPC*)LinkedList_ExtractHead(list);
@@ -88,16 +81,9 @@ int main(const int argc, const char *argv[]) {
     assert(extracted == &navi);
     assert(list->size == 3);
 
-    printf("--- Apres extractions ---\n");
-    LinkedList_Print(list);
-
     LinkedList_RemoveAt(list, 0);
-    printf("--- Apres suppression index 0 ---\n");
-    LinkedList_Print(list);
 
     LinkedList_RemoveAt(list, list->size - 1);
-    printf("--- Apres suppression dernier index ---\n");
-    LinkedList_Print(list);
 
     assert(list->size == 1);
 
