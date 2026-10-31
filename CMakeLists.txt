@@ -12,6 +12,8 @@ set(PROJECT_SOURCES
         src/linked-list/linked-list.h
         src/stack/stack.h
         src/stack/stack.c
+        src/binary-tree/binary-tree.h
+        src/binary-tree/binary-tree.c
 )
 
 include_directories(.)
@@ -21,3 +23,4 @@ add_executable(hashtables testing/test_hashtable.c ${PROJECT_SOURCES})
 add_executable(dynamic-array testing/test_dynamic-array.c ${PROJECT_SOURCES})
 add_executable(linked-list testing/test_linked-list.c ${PROJECT_SOURCES})
 add_executable(stack testing/test_stack.c ${PROJECT_SOURCES})
+add_executable(binary-tree testing/test_binary-tree.c ${PROJECT_SOURCES})

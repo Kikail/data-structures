@@ -215,7 +215,7 @@ void* LinkedList_ExtractAt(LinkedList* list, unsigned int index) {
     }
 
     // Cas ou l'index est la fin
-    if (index >= list->size) {
+    if (index >= list->size - 1) {
         return LinkedList_ExtractTail(list);
     }
 

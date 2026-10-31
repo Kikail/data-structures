@@ -5,6 +5,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 Hashtable* Hashtable_CreateEmpty() {
     Hashtable* hashtable = malloc(sizeof(Hashtable));
@@ -22,7 +23,7 @@ Hashtable* Hashtable_CreateEmptyWithCapacity(const int capacity) {
 
 unsigned int hash(const char* key) {
     unsigned int hash = 5381;   // Nombre magique !
-    while (*key++) hash = (hash * 33) + *key; // 33 est magique aussi !
+    while (*key) hash = (hash * 33) + (unsigned char)*key++; // 33 est magique aussi !
     return hash;
 }
 
@@ -65,7 +66,7 @@ void* Hashtable_Get(Hashtable* hashtable, const char* key) {
     struct HashtableNode* node = &hashtable->table[hashed_key];
     struct HashtableNode* current = node;
     while (current != NULL) {
-        if (strcmp(current->key, key) == 0) {
+        if (current->key != NULL && strcmp(current->key, key) == 0) {
             return current->value;
         }
         current = current->next;
