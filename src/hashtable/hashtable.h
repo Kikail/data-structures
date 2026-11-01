@@ -73,6 +73,14 @@ void Hashtable_Put(Hashtable* hashtable, const char* key, void* value);
 void* Hashtable_Get(Hashtable* hashtable, const char* key);
 
 /**
+ * @brief Fonction qui va liberer la memoire de toutes les donnees dans la table
+ *
+ * @param hashtable pointeur vers la hashtable voulue
+ * @param destructor fonction qui nettoie les donnees
+ */
+void Hashtable_Clean(Hashtable* hashtable, void (*destructor)(void*));
+
+/**
  * @brief Fonction qui permet de liberer la memoire de la hashtable
  *
  * La hashtable ainsi que ses champs ne seront plus accessible

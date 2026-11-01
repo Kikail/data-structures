@@ -74,6 +74,30 @@ void* Hashtable_Get(Hashtable* hashtable, const char* key) {
     return NULL;
 }
 
+void Hashtable_Clean(Hashtable* hashtable, void (*destructor)(void*)) {
+    if (!hashtable || !destructor) return;
+
+    for (int i = 0; i < hashtable->capacity; i++) {
+        struct HashtableNode* current = hashtable->table[i].next;
+
+        if (hashtable->table[i].value != NULL) {
+            destructor(hashtable->table[i].value);
+            hashtable->table[i].value = NULL;
+        }
+
+        while (current != NULL) {
+            struct HashtableNode* next = current->next;
+            if (destructor && current->value != NULL) {
+                destructor(current->value);
+            }
+            free(current);
+            current = next;
+        }
+
+        hashtable->table[i].next = NULL;
+    }
+}
+
 void Hashtable_Destroy(Hashtable* hashtable) {
     if (hashtable->table == NULL) return;
 
