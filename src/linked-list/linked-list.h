@@ -75,6 +75,14 @@ void LinkedList_PutTail(LinkedList* list, void* data);
 void LinkedList_PutAt(LinkedList* list, void* data, unsigned int index);
 
 /**
+ * @brief Fonction permettant de recuperer une valeur a une position precise dans la liste chainee
+ *
+ * @param list Pointeur vers la liste chainee voulue
+ * @param index Position ou recuperer la valeur
+ */
+void* LinkedList_GetAt(LinkedList* list, unsigned int index);
+
+/**
  * @brief Fonction permettant de supprimer l'element en tete de la liste chainee
  *
  * @param list Pointeur vers la liste chainee voulue

@@ -92,6 +92,20 @@ void LinkedList_PutAt(LinkedList* list, void* data, unsigned int index) {
     list->size += 1;
 }
 
+void* LinkedList_GetAt(LinkedList* list, unsigned int index) {
+    if (!list) return NULL;
+    if (index >= list->size) return list->tail->data;
+    if (index == 0) return list->head->data;
+    struct LinkedListNode* current = list->head;
+    unsigned int i = 0;
+    while (!current) {
+        if (i==index) return current->data;
+        i++;
+        current = current->next;
+    }
+    return NULL;
+}
+
 void LinkedList_RemoveHead(LinkedList* list) {
     if (LinkedList_IsEmpty(list)) return;
 
