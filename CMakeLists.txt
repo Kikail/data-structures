@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 4.3)
+cmake_minimum_required(VERSION 3.10)
 project(data_structures C)
 
 set(CMAKE_C_STANDARD 11)
@@ -16,11 +16,16 @@ set(PROJECT_SOURCES
         src/binary-tree/binary-tree.c
 )
 
-include_directories(.)
-include_directories(src)
+add_library(data_structures STATIC ${PROJECT_SOURCES})
 
-add_executable(hashtables testing/test_hashtable.c ${PROJECT_SOURCES})
-add_executable(dynamic-array testing/test_dynamic-array.c ${PROJECT_SOURCES})
-add_executable(linked-list testing/test_linked-list.c ${PROJECT_SOURCES})
-add_executable(stack testing/test_stack.c ${PROJECT_SOURCES})
-add_executable(binary-tree testing/test_binary-tree.c ${PROJECT_SOURCES})
+target_include_directories(data_structures PUBLIC
+        $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}>
+        $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/src>
+        $<INSTALL_INTERFACE:include>
+)
+
+#add_executable(hashtables testing/test_hashtable.c ${PROJECT_SOURCES})
+#add_executable(dynamic-array testing/test_dynamic-array.c ${PROJECT_SOURCES})
+#add_executable(linked-list testing/test_linked-list.c ${PROJECT_SOURCES})
+#add_executable(stack testing/test_stack.c ${PROJECT_SOURCES})
+#add_executable(binary-tree testing/test_binary-tree.c ${PROJECT_SOURCES})
