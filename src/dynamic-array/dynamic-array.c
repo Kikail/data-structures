@@ -72,6 +72,13 @@ void DynamicArray_PutAt(DynamicArray* array, unsigned int index, void* value) {
     array->array[index] = value;
 }
 
+void DynamicArray_RemoveAt(DynamicArray* array, unsigned int index) {
+    if (!array || !array->array || !index) return;
+    if (index >= array->capacity) return;
+    array->array[index] = NULL;
+    array->size -= 1;
+}
+
 void* DynamicArray_Get(DynamicArray* array, unsigned int index) {
     if (!array || !array->array || index >= array->capacity) return NULL;
     return array->array[index];

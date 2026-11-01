@@ -65,6 +65,14 @@ void DynamicArray_Put(DynamicArray* array, void* value);
 void DynamicArray_PutAt(DynamicArray* array, unsigned int index, void* value);
 
 /**
+ * @brief Fonction qui enleve la valeur dans la premiere case vide
+ *
+ * @param array tableau dynamique
+ * @param index position dans le tableau
+ */
+void DynamicArray_RemoveAt(DynamicArray* array, unsigned int index);
+
+/**
  * @brief Fonction renvoit un element a une position dans le tableau
  *
  * @param array tableau dynamique
